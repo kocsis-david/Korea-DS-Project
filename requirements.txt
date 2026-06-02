@@ -1,0 +1,29 @@
+# FungiCLEF 2025 — final pipeline dependencies
+# Tested with Python 3.12 on an NVIDIA RTX 5090 (CUDA 12.8).
+#
+# IMPORTANT — install GPU PyTorch FIRST with the CUDA build matching your driver,
+# otherwise pip may pull a CPU-only wheel and feature extraction will be very slow:
+#
+#   pip install torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cu128
+#
+# then:  pip install -r requirements.txt
+# (CPU-only also works for inference, just slower.)
+
+# --- deep learning ---
+torch>=2.4            # tested 2.9.1+cu128 ; needs torch.amp.autocast('cuda', ...) API
+torchvision>=0.19     # tested 0.24.1
+open_clip_torch>=3.0  # tested 3.3.0 ; loads hf-hub:imageomics/bioclip-2
+timm>=1.0.20          # tested 1.0.27 ; provides vit_base_patch16_dinov3.lvd1689m
+
+# --- data / arrays / images ---
+numpy>=1.24,<2.3      # tested 1.26.4
+pandas>=2.0           # tested 3.0.3
+pillow>=10.0          # tested 10.2.0
+
+# --- notebook visualisation (fungi_ensemble.ipynb) ---
+matplotlib>=3.6       # tested 3.6.3
+seaborn>=0.13         # tested 0.13.2
+
+# --- optional: execute the notebook headlessly ---
+# nbconvert
+# ipykernel
