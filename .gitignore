@@ -1,0 +1,15 @@
+# dataset (9.4 GB — download via Kaggle, never commit)
+data/
+
+# secrets
+.env
+
+# regenerable caches / artifacts (not source)
+__pycache__/
+*.pyc
+features_ensemble/
+features_resnet50/
+*.npz
+*.npy
+
+# keep small report assets: viz_ens_*.png and submission_ensemble.csv ARE committed
